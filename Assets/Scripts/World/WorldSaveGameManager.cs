@@ -6,7 +6,7 @@ public class WorldSaveGameManager : MonoBehaviour
 {
   public static WorldSaveGameManager instance;
 
-  [SerializeField] private int worldSceneIndex = 1;
+  [SerializeField] int worldSceneIndex = 1;
   private void Awake()
   {
     // SO VAI TER UMA INSTANCIA DESSE SCRIPT POR VEZ, SE TIVER OUTRO ELE DESTROY
@@ -20,16 +20,15 @@ public class WorldSaveGameManager : MonoBehaviour
     }
   }
 
-  private void Start()
-  {
-    
-  }
-
   public IEnumerator LoadNewGame()
   {
     AsyncOperation loadOperation = SceneManager.LoadSceneAsync(worldSceneIndex);
     
     yield return null;
   }
-  
+
+  public int GetWorldSceneIndex()
+  {
+    return worldSceneIndex;
+  }
 }
